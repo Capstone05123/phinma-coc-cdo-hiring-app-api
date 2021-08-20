@@ -7,24 +7,24 @@ using webapi_vs2019.Models;
 
 namespace webapi_vs2019.Controllers
 {
-    public class EmployeeSkillController : ApiController
+    public class EmployerMessageController : ApiController
     {
         dbContext _db = new dbContext();
 
         [HttpPost]
-        [Route("api/create/employee/skills")]
-        public IHttpActionResult Create(EmployeeSkills employeeSkillsObj)
+        [Route("api/create/employer/message")]
+        public IHttpActionResult Create(Notification notificationObj)
         {
-            _db.employeeSkills.Add(employeeSkillsObj);
+            _db.notifications.Add(notificationObj);
             _db.SaveChanges();
-            return Ok(employeeSkillsObj);
+            return Ok(notificationObj);
         }
 
         [HttpGet]
-        [Route("api/get/employee/skills/{uid}")]
-        public IHttpActionResult GetEmployeeSkills(string uid)
+        [Route("api/get/employer/message/{uid}")]
+        public IHttpActionResult GetEmployerMessage(string uid)
         {
-            var result = _db.employeeSkills.Where(x => x.Uid == uid).ToList();
+            var result = _db.notifications.Where(x => x.Uid == uid).ToList();
             if (result != null)
                 return Ok(result);
             else
@@ -32,13 +32,13 @@ namespace webapi_vs2019.Controllers
         }
 
         [HttpDelete]
-        [Route("api/remove/employee/skills/{Id}")]
-        public IHttpActionResult DeleteEmployeeEducation(int Id)
+        [Route("api/remove/employer/message/{Id}")]
+        public IHttpActionResult Delete(int Id)
         {
-            var result = _db.employeeSkills.Find(Id);
+            var result = _db.notifications.Find(Id);
             if (result != null)
             {
-                _db.employeeSkills.Remove(result);
+                _db.notifications.Remove(result);
                 _db.SaveChanges();
                 return Ok("Removed successfully!");
             }

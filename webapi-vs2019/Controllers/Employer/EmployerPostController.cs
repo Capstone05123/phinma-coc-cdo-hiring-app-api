@@ -7,24 +7,24 @@ using webapi_vs2019.Models;
 
 namespace webapi_vs2019.Controllers
 {
-    public class EmployeeController : ApiController
+    public class EmployerPostController : ApiController
     {
         dbContext _db = new dbContext();
 
         [HttpPost]
-        [Route("api/create/employee")]
-        public IHttpActionResult Create(Employee employeeObj)
+        [Route("api/create/employer/posts")]
+        public IHttpActionResult Create(Post postObj)
         {
-            _db.employees.Add(employeeObj);
+            _db.posts.Add(postObj);
             _db.SaveChanges();
-            return Ok(employeeObj);
+            return Ok(postObj);
         }
 
         [HttpGet]
-        [Route("api/get/employee/all")]
-        public IHttpActionResult GetAllEmployee()
+        [Route("api/get/employer/posts/all")]
+        public IHttpActionResult GetAllEmployerPosts(string uid)
         {
-            var result = _db.employees.ToList();
+            var result = _db.posts.ToList();
             if (result != null)
                 return Ok(result);
             else
@@ -32,10 +32,10 @@ namespace webapi_vs2019.Controllers
         }
 
         [HttpGet]
-        [Route("api/get/employee/{uid}")]
-        public IHttpActionResult GetEmployee(string uid)
+        [Route("api/get/employer/posts/{uid}")]
+        public IHttpActionResult GetEmployerPosts(string uid)
         {
-            var result = _db.employees.Where(x => x.Uid == uid).FirstOrDefault();
+            var result = _db.posts.Where(x => x.Uid == uid).ToList();
             if (result != null)
                 return Ok(result);
             else
@@ -43,18 +43,21 @@ namespace webapi_vs2019.Controllers
         }
 
         [HttpPut]
-        [Route("api/update/employee")]
-        public IHttpActionResult Update(Employee employeeObj)
+        [Route("api/update/employer/posts")]
+        public IHttpActionResult Update(Post postObj)
         {
-            var result = _db.employees.Find(employeeObj.Id);
+            var result = _db.posts.Find(postObj.Id);
 
             if (result != null)
             {
-                result.FirstName = employeeObj.FirstName;
-                result.LastName = employeeObj.LastName;
-                result.Address = employeeObj.Address;
-                result.ExperienceLevel = employeeObj.ExperienceLevel;
-                result.Description = employeeObj.Description;
+                result.Title = postObj.Title;
+                result.Location = postObj.Location;
+                result.Details = postObj.Details;
+                result.ProjectLength = postObj.ProjectLength;
+                result.ExperienceLevel = postObj.ExperienceLevel;
+                result.Salary = postObj.Salary;
+                result.IsVisible = postObj.IsVisible;
+
                 _db.Entry(result).State = System.Data.Entity.EntityState.Modified;
                 _db.SaveChanges();
                 return Ok(result);
@@ -65,13 +68,13 @@ namespace webapi_vs2019.Controllers
         }
 
         [HttpDelete]
-        [Route("api/remove/employee/{Id}")]
+        [Route("api/remove/employer/posts/{Id}")]
         public IHttpActionResult Delete(int Id)
         {
-            var result = _db.employees.Find(Id);
+            var result = _db.posts.Find(Id);
             if (result != null)
             {
-                _db.employees.Remove(result);
+                _db.posts.Remove(result);
                 _db.SaveChanges();
                 return Ok("Removed successfully!");
             }

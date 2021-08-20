@@ -21,6 +21,7 @@ namespace webapi_vs2019.Controllers
             return Ok(educationObj);
 
         }
+
         [HttpGet]
         [Route("api/get/employee/education/{uid}")]
         public IHttpActionResult GetEmployeeEducation(string uid)
@@ -31,6 +32,7 @@ namespace webapi_vs2019.Controllers
             else
                 return BadRequest("Result not found");
         }
+
         [HttpPut]
         [Route("api/update/employee/education")]
         public IHttpActionResult Update(Education educationObj)
@@ -51,6 +53,7 @@ namespace webapi_vs2019.Controllers
             else
                 return BadRequest("Result not found");
         }
+
         [HttpDelete]
         [Route("api/remove/employee/education/{Id}")]
         public IHttpActionResult DeleteEmployeeEducation(int Id)

@@ -18,6 +18,7 @@ namespace webapi_vs2019.Controllers
             _db.SaveChanges();
             return Ok(employmentHistoryObj);
         }
+
         [HttpGet]
         [Route("api/get/employee/employment/{uid}")]
         public IHttpActionResult GetEmployeeEmployment(string uid)
@@ -28,6 +29,7 @@ namespace webapi_vs2019.Controllers
             else
                 return BadRequest("Result not found");
         }
+
         [HttpPut]
         [Route("api/update/employee/employment")]
         public IHttpActionResult Update(EmploymentHistory educationObj)
@@ -45,6 +47,7 @@ namespace webapi_vs2019.Controllers
             else
                 return BadRequest("Result not found");
         }
+
         [HttpDelete]
         [Route("api/remove/employee/employment/{Id}")]
         public IHttpActionResult DeleteEmployeeEducation(int Id)

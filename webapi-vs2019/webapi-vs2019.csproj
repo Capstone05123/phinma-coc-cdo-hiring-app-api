@@ -176,10 +176,16 @@
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\Control\BanController.cs" />
     <Compile Include="Controllers\Employee\EmployeeEducationController.cs" />
     <Compile Include="Controllers\Employee\EmployeeController.cs" />
     <Compile Include="Controllers\Employee\EmployeeEmploymentController.cs" />
     <Compile Include="Controllers\Employee\EmployeeSkillController.cs" />
+    <Compile Include="Controllers\Employer\EmployerController.cs" />
+    <Compile Include="Controllers\Employer\EmployerMessageController.cs" />
+    <Compile Include="Controllers\Employer\EmployerMessageTemplateController.cs" />
+    <Compile Include="Controllers\Employer\EmployerPostController.cs" />
+    <Compile Include="Controllers\Employer\EmployerProposalController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -204,6 +210,11 @@
     <Compile Include="Models\Employee\Employee.cs" />
     <Compile Include="Models\Employee\EmployeeSkills.cs" />
     <Compile Include="Models\Employee\EmploymentHistory.cs" />
+    <Compile Include="Models\Employee\Notification.cs" />
+    <Compile Include="Models\Employer\Employer.cs" />
+    <Compile Include="Models\Employer\MessageTemplate.cs" />
+    <Compile Include="Models\Employer\Post.cs" />
+    <Compile Include="Models\Employer\Proposal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -222,11 +233,18 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Data\" />
-    <Folder Include="Models\Employer\" />
+    <Folder Include="Views\Ban\" />
     <Folder Include="Views\Education\" />
     <Folder Include="Views\EmployeeEmployment\" />
     <Folder Include="Views\EmployeeSkill\" />
     <Folder Include="Views\Employee\" />
+    <Folder Include="Views\EmployerMessageTemplate\" />
+    <Folder Include="Views\EmployerMessage\" />
+    <Folder Include="Views\EmployerPost\" />
+    <Folder Include="Views\EmployerProposal\" />
+    <Folder Include="Views\Employer\" />
+    <Folder Include="Views\Post\" />
+    <Folder Include="Views\Proposal\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

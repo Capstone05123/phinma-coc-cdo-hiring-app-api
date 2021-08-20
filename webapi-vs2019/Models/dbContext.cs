@@ -14,6 +14,11 @@ namespace webapi_vs2019.Models
         public DbSet<Education> educations { get; set; }
         public DbSet<EmploymentHistory> employmentHistories { get; set; }
         public DbSet<EmployeeSkills> employeeSkills { get; set; }
+        public DbSet<Notification> notifications { get; set; }
+        public DbSet<Employer> employers { get; set; }
+        public DbSet<MessageTemplate> messageTemplates { get; set; }
+        public DbSet<Post> posts { get; set; }
+        public DbSet<Proposal> proposals { get; set; }
 
     }
 }
