@@ -1,7 +1,6 @@
 # webapi-cdo-hiring-app
 
-<p style='color:red'>  Background of the problem  </p>
-
+``` Background of the problem ```
 
 <p> 
 But the word applying job is not easy because you go out there and the money you spent is not enough. Whether the competition is too fierce, you’re unwittingly making a serious mistake or two in your job search in the establishment and company you want to apply, or the lack of callbacks and interviews and abundance of rejection is getting you down, it’s perfectly normal to feel frustrated and defeated while on the lookout for a new job. 
